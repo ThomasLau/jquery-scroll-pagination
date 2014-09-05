@@ -38,14 +38,14 @@
 	 var mayLoadContent = $(target).scrollTop()+opts.heightOffset>= $(document).height() - $(target).height();
 	 //console.log($(target).scrollTop()+"-doc.h:"+$(document).height()+"-target.h-"+$(target).height()+"--scroll:"+mayLoadContent);
 	 if (mayLoadContent){
-		 if (opts.beforeLoad != null){
-			opts.beforeLoad(); 
-		 }
 		 if (!opts.checkloding()){
 			 return;
 		 }
 		 if(!doneposting) return;
 		 doneposting=false;
+		 if (opts.beforeLoad != null){
+			opts.beforeLoad(); 
+		 }
 		 $(obj).children().attr('rel', 'loaded');
 		 $.ajax({
 			  type: 'POST',
